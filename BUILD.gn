@@ -1,14 +1,14 @@
 
   config("gtestconfig") {
-      include_dirs =  [ "//googletest/include",
-                        "//googletest"
+      include_dirs =  [ "googletest/include",
+                        "googletest"
                     ]
   }
 
 
   config("gmockconfig") {
-      include_dirs =  [ "//googlemock/include",
-                        "//googlemock",
+      include_dirs =  [ "googlemock/include",
+                        "googlemock",
                     ]
   }
 
