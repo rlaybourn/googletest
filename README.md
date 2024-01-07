@@ -1,4 +1,7 @@
 # GoogleTest
+### Richard Laybourn
+This is my fork of GoogleTest adding files to allow building with google`s gn meta build system. I needed this as I wish to add unit testing to a connectedhomeip project that builds
+using the gn build system
 
 ### Announcements
 

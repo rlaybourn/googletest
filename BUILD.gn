@@ -1,0 +1,56 @@
+
+  config("gtestconfig") {
+      include_dirs =  [ "//googletest/include",
+                        "//googletest"
+                    ]
+  }
+
+
+  config("gmockconfig") {
+      include_dirs =  [ "//googlemock/include",
+                        "//googlemock",
+                    ]
+  }
+
+static_library("gtest") {
+
+  public_configs = [ ":gtestconfig" ]
+
+                
+  sources = [   "googletest/src/gtest-all.cc",               
+                "googletest/src/gtest.cc",             
+                "googletest/src/gtest-filepath.cc",     
+                "googletest/src/gtest-port.cc",      
+                "googletest/src/gtest-test-part.cc",
+                "googletest/src/gtest-assertion-result.cc",  
+                "googletest/src/gtest-death-test.cc",  
+                "googletest/src/gtest-internal-inl.h",  
+                "googletest/src/gtest-matchers.cc",  
+                "googletest/src/gtest-printers.cc",  
+                "googletest/src/gtest-typed-test.cc", 
+                ]
+}
+
+
+static_library("gtest_main") {
+  public_configs = [ ":gtestconfig" ]
+  sources = [
+                "googletest/src/gtest_main.cc",      
+            ]
+  deps = [ ":gtest" ]
+}
+
+static_library("gmock") {
+
+  public_configs = [ ":gmockconfig" ]
+  sources = [
+                "googlemock/src/gmock-all.cc",
+                "googlemock/src/gmock-cardinalities.cc",
+                "googlemock/src/gmock.cc",
+                "googlemock/src/gmock-internal-utils.cc",
+                "googlemock/src/gmock_main.cc",
+                "googlemock/src/gmock-matchers.cc",
+                "googlemock/src/gmock-spec-builders.cc",
+            ]
+ deps = [ ":gtest" ]
+}
